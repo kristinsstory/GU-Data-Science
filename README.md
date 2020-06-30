@@ -1,1 +1,3 @@
-# Jupyter_Notebook-Projects
+Анализ данных: библиотеки Numpy, Pandas, Matplotlib, Scikit-learn
+
+Методы сбора и обработки данных из сети Интернет
