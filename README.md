@@ -1,7 +1,4 @@
-1. Анализ данных: библиотеки Numpy, Pandas, Matplotlib, Scikit-learn
-2. Методы сбора и обработки данных из сети Интернет
-
-# Geekbrains 📚
+# Geekbrains 
 
 ### [Анализ данных: библиотеки Numpy, Pandas, Matplotlib, Scikit-learn](https://geekbrains.ru/courses/476)
 #### [Упражнения](https://github.com/Christinayar/Python_Libraries/tree/master/GU%20Python%20for%20Data%20Science%20)
