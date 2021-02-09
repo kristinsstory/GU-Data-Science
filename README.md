@@ -16,10 +16,10 @@
 ### [Методы сбора и обработки данных из сети Интернет](https://geekbrains.ru/courses/498) 
 #### [Упражнения](https://github.com/Christinayar/Python_Libraries/tree/master/GU%20Data%20collection%20and%20processing%20methods)
 - [x] 1. Основы клиент-серверного взаимодействия. Парсинг API
-- [] 2. Парсинг HTML. BeautifulSoup, MongoDB
- 3. Системы управления базами данных MongoDB и SQLite в Python
- 4. Парсинг HTML. XPath
- 5. Scrapy
-  6. Scrapy. Парсинг фото и файлов
-  7. Selenium в Python
-  8. Работа с данными
+- [ ] 2. Парсинг HTML. BeautifulSoup, MongoDB
+- [ ] 3. Системы управления базами данных MongoDB и SQLite в Python
+- [ ] 4. Парсинг HTML. XPath
+- [ ] 5. Scrapy
+- [ ] 6. Scrapy. Парсинг фото и файлов
+- [ ] 7. Selenium в Python
+- [ ] 8. Работа с данными
