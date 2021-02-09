@@ -11,6 +11,7 @@
 - [x] 7. Способы выбора данных из файла. Команды awk, sed, grep. Регулярные выражения
 - [x] 8. Использование переменных и циклов в командной строке. Просмотр истории команд. Запуск программ по расписанию (cron)
 
-
+***
+### Введение в Git
 ![Screenshot](https://github.com/Christinayar/Linux/blob/main/git_education.jpg)
 ![Screenshot](https://github.com/Christinayar/Linux/blob/main/git_education2.jpg)
