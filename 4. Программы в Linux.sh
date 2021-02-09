@@ -1,113 +1,80 @@
-# Урок 4
-# Программы в Linux
-# Права в Linux. Установка программ. Создание и запуск скриптов Python в Linux
+### 1. Создать пользователя user_new и предоставить ему права на
+# редактирование файла с программой, выводящей на экран Hello, world!
+
+# редактирование файла с программой, выводящей на экран Hello, world!
+sudo useradd -m -s /bin/bash user_new
+sudo passwd user_new
+
+# Можно добавить право записи для всех
+sudo chmod o+w hello.py
+
+# Можно изменить владельца файла
+sudo chown user_new hello.py
+
+# Можно добавить пользователя в группу файла
+sudo usermod -aG student user_new
 
 
-#################################################### Права в Linux
+student@Ubuntu-MySQL-VirtualBox:~$ sudo useradd -m -d /home/user55 -s /bin/bash user55
 
-# Информация о пользователе
-whoami
+student@Ubuntu-MySQL-VirtualBox:~$ ll /home
+итого 16
+drwxr-xr-x  4 root    root    4096 фев 25 14:47 ./
+drwxr-xr-x 24 root    root    4096 фев 23 19:31 ../
+drwxr-xr-x 23 student student 4096 фев 25 14:28 student/
+drwxr-xr-x  2 user55  user55  4096 фев 25 14:47 user55/
 
-# В каких группах состоит текущий пользователь
-groups
+student@Ubuntu-MySQL-VirtualBox:~$ sudo su - user55
+user55@Ubuntu-MySQL-VirtualBox:~$ 
+student@Ubuntu-MySQL-VirtualBox:~$ sudo su - user55
+user55@Ubuntu-MySQL-VirtualBox:~$ exit
+выход
+student@Ubuntu-MySQL-VirtualBox:~$ sudo passwd user55
+Введите новый пароль UNIX: 
+Повторите ввод нового пароля UNIX: 
+passwd: пароль успешно обновлён
 
-# Создание пользователя
-sudo useradd -m -s /bin/bash user1
+student@Ubuntu-MySQL-VirtualBox:~$ su user55
+Пароль: 
+user55@Ubuntu-MySQL-VirtualBox:/home/student$ 
 
-# Определяем пароль для пользователя
-sudo passwd user1
+-rw-rw-r--  1 student student   19 фев 24 01:46 Hello.py
 
-# Параметры будут даны пользователю после создания по умолчанию
-useradd -D
+student@Ubuntu-MySQL-VirtualBox:~$ chmod o+w Hello.py
+student@Ubuntu-MySQL-VirtualBox:~$ ls -l Hello.py
+-rw-rw-rw- 1 student student 19 фев 24 01:46 Hello.py
 
-# Зайдём в оболочку под другим пользователем
-su user1
+### 2. Зайти под юзером user_new и с помощью редактора Vim поменять фразу в
+# скрипте из пункта 1 на любую другую.
+vim hello.py
+cat hello.py
 
-# Проверим
-whoami
 
-# Выйти из сессии этого пользователя
-exit
+user55@Ubuntu-MySQL-VirtualBox:/home/student$ vim Hello.py
+user55@Ubuntu-MySQL-VirtualBox:/home/student$ cat Hello.py
+print  "Hello Python world!"
 
-# удаление пользователя
-whatis userdel
-userdel -- help
-userdel -fr user1
+user55@Ubuntu-MySQL-VirtualBox:/home/student$ python Hello.py
+Hello Python world!
 
-#заблокировать пользователя
-sudo usermod –L user1
-#разблокировать пользователя
-sudo usermod –U user1
+# Либо права на файл можно было поменять через добавление нового юзера в суперюзер
+student@Ubuntu-MySQL-VirtualBox:~$ sudo usermod -G sudo user55
+[sudo] пароль для student: 
+student@Ubuntu-MySQL-VirtualBox:~$ groups user55
+user55 : user55 sudo
 
-# дать пользователю права суперпользователя
-sudo usermod -G sudo user1
 
-# Команда chmod
-# Предоставить другим пользователям права на запись в файл header.txt
-chmod o+w header.txt
+### 3.* Под юзером user_new зайти в его домашнюю директорию и создать
+# программу на Python, выводящую в консоль цифры от 1 до 10 включительно с
+# интервалом в 1 секунду.
 
-# Можно менять несколько прав для ряда категорий
-chmod go-rw header.txt
+su user_new
+cd ~
+vim numbers.py
 
-# Другие варианты работы с правами
-chmod u+w,g+r header.txt
-chmod -rw header.txt
+import time
+for i in range(1,11):
+  time.sleep(1)
+  print(i)
 
-# задание прав триадами цифр
-•	0: (000) No permission.
-•	1: (001) Execute permission.
-•	2: (010) Write permission.
-•	3: (011) Write and execute permissions.
-•	4: (100) Read permission.
-•	5: (101) Read and execute permissions.
-•	6: (110) Read and write permissions.
-•	7: (111) Read, write, and execute permissions.
-chmod 770 header.txt
-# флаг -R для задания рекурсивного изменения прав
-chmod 777 -R ~/lesson3
-
-# Изменяем владельца файла
-sudo chown user1 header.txt
-
-#################################################### Установка программ
-
-# Список всех программ, установленных на данном сервере
-dpkg -l
-
-#tree – утилина для вывода структуры файлов и папок деревом
-sudo apt install tree
-tree
-
-# Удалить zip
-sudo apt-get remove zip
-
-#################################################### Создание и запуск скриптов Python в Linux
-
-# Установим pip
-sudo apt install python3-pip
-
-# Чтобы создать программу, написанную на Python, потребуется библиотека Numpy
-pip3 install numpy
-
-# Запустим python
-python3
-
-# Импортируем библиотеку Numpy с помощью команды 
-import numpy as np
-
-# Запустим команду, создающую массив из 10 чисел 
-np.arange(10)
-
-# Выйти из командной строки интерпретатора Python можно с помощью команды 
-exit()
-
-# С помощью текстового редактора vim создадим файл create_matrix.py
-# Внесем в него следующую программу:
-
-import numpy as np
-a = np.arange(12)
-b = a.reshape((-1, 4))
-print(b)
-
-# Запустим этот файл, используя команду 
-python create_matrix.py
+python numbers.py
