@@ -1,6 +1,6 @@
 # Geekbrains
 
-### [1. Введение в высшую математику](https://geekbrains.ru/courses/477)
+### [Введение в высшую математику](https://geekbrains.ru/courses/477)
 #### [Упражнения](https://github.com/Christinayar/Maths/tree/master/GU%20Introduction%20to%20Higher%20Maths)
 - [x] 1. Элементарная алгебра
 - [x] 2. Введение в аналитическую геометрию. Графики на плоскости
