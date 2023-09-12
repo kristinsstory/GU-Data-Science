@@ -15,8 +15,8 @@
 - [x] 1. Основы клиент-серверного взаимодействия. Парсинг API
 - [x] 2. Парсинг HTML. BeautifulSoup, MongoDB
 - [x] 3. Системы управления базами данных MongoDB и SQLite в Python
-- [ ] 4. Парсинг HTML. XPath
-- [ ] 5. Scrapy
-- [ ] 6. Scrapy. Парсинг фото и файлов
-- [ ] 7. Selenium в Python
-- [ ] 8. Работа с данными
+- [x] 4. Парсинг HTML. XPath
+- [x] 5. Scrapy
+- [x] 6. Scrapy. Парсинг фото и файлов
+- [x] 7. Selenium в Python
+- [x] 8. Работа с данными
