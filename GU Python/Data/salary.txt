@@ -1,0 +1,5 @@
+Ivanov 10000
+Sidorov 123200
+Danilina 19999
+Markova 24000
+Mihaylov 288000
